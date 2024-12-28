@@ -209,13 +209,17 @@
     </Style>
 
     <!--Floating watermark anim-->
-    <Style Selector="^:not(:hasnotime):focus-within /template/ TextBlock#floatingWatermark,
-                    ^:not(:hasnotime) /template/ TextBlock#floatingWatermark">
+    <Style Selector="^:not(:hasnotime):focus-within /template/ TextBlock#floatingWatermark">
       <Setter Property="Margin" Value="1,-16,1,1" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
       <Setter Property="MaxWidth" Value="{TemplateBinding Width}" />
     </Style>
 
+	<Style Selector="^:not(:hasnotime) /template/ TextBlock#floatingWatermark">
+		<Setter Property="Margin" Value="1,-16,1,1" />
+		<Setter Property="RenderTransform" Value="scale(0.75)" />
+		<Setter Property="MaxWidth" Value="{TemplateBinding Width}" />
+	</Style>
 
     <Style Selector="^:hasnotime:not(:focus) /template/ TextBlock#floatingWatermark">
       <Setter Property="Margin" Value="10,10,10,0" />
@@ -331,6 +335,18 @@
                 <RepeatButton Name="PART_MinuteDownButton" Grid.Row="2" Theme="{StaticResource DateTimePickerDownButton}" Background="{DynamicResource MaterialDesignPaper}"/>
               </Grid>
 
+			<Grid Name="PART_SecondHost" Grid.Column="4" RowDefinitions="Auto,*,Auto">
+				<RepeatButton Name="PART_SecondUpButton" Grid.Row="0" Theme="{StaticResource DateTimePickerUpButton}" Background="{DynamicResource MaterialDesignPaper}"/>
+				<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled"
+								VerticalScrollBarVisibility="Hidden">
+					<DateTimePickerPanel Name="PART_SecondSelector"
+											PanelType="Second"
+											ShouldLoop="True" Width="120"
+											ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"/>
+				</ScrollViewer>
+				<RepeatButton Name="PART_SecondDownButton" Grid.Row="2" Theme="{StaticResource DateTimePickerDownButton}" Background="{DynamicResource MaterialDesignPaper}"/>
+			</Grid>
+
               <Grid Name="PART_PeriodHost" Grid.Column="4" RowDefinitions="Auto,*,Auto">
 				        <RepeatButton Name="PART_PeriodUpButton" Grid.Row="0" IsVisible="False" Theme="{StaticResource DateTimePickerUpButton}" Background="{DynamicResource MaterialDesignPaper}"/>
 				        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled"
@@ -346,7 +362,7 @@
               <Rectangle x:Name="HighlightRect" ZIndex="-1"
                          Fill="{DynamicResource TimePickerFlyoutPresenterHighlightFill}"
                          Grid.Column="0"
-                         Grid.ColumnSpan="5"
+                         Grid.ColumnSpan="7"
                          VerticalAlignment="Center"
                          Height="{DynamicResource TimePickerFlyoutPresenterHighlightHeight}" />
               <Rectangle Name="PART_FirstSpacer"
@@ -359,6 +375,11 @@
                          HorizontalAlignment="Center"
                          Width="{DynamicResource TimePickerSpacerThemeWidth}"
                          Grid.Column="3" />
+			  <Rectangle Name="PART_ThirdSpacer"
+		                 Fill="{DynamicResource TimePickerFlyoutPresenterSpacerFill}"
+		                 HorizontalAlignment="Center"
+		                 Width="{DynamicResource TimePickerSpacerThemeWidth}"
+		                 Grid.Column="5" />
             </Grid>
 
             <Grid Name="AcceptDismissGrid"

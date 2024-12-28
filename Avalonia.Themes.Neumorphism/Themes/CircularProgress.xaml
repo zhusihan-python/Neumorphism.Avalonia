@@ -24,7 +24,7 @@
 
 	<!--Default CircularProgress theme-->
 	<ControlTheme x:Key="{x:Type controls:CircularProgress}" TargetType="controls:CircularProgress">
-		<Setter Property="StrokeThickness" Value="{TemplateBinding StrokeThickness}"/>
+		<Setter Property="StrokeThickness" Value="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
 		<Setter Property="Template">
 			<ControlTemplate>
 				<Grid Background="{TemplateBinding Background}">

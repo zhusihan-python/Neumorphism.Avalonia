@@ -1361,7 +1361,7 @@
     <Setter Property="VerticalAlignment" Value="Stretch" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="assist:ExpanderAssist.ExpanderStrokeBrush" Value="{TemplateBinding assist:ExpanderAssist.ExpanderStrokeBrush}" />
+    <Setter Property="assist:ExpanderAssist.ExpanderStrokeBrush" Value="{Binding assist:ExpanderAssist.ExpanderStrokeBrush, RelativeSource={RelativeSource TemplatedParent}}" />
 
     <Style Selector="^:checked /template/ Path#ExpandCollapseChevron">
       <Style.Animations>
