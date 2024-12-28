@@ -222,12 +222,12 @@
     </Style>
 
     <!--Floating watermark anim-->
-    <Style Selector="^:not(^[Text=]):focus-within /template/ TextBlock#floatingWatermark">
+    <Style Selector="^:not(TextBox:empty):focus-within /template/ TextBlock#floatingWatermark">
       <Setter Property="Margin" Value="1,-16,1,1" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
 	  <Setter Property="MaxWidth" Value="{TemplateBinding Width}" />
     </Style>
-	<Style Selector="^:not(^[Text=]) /template/ TextBlock#floatingWatermark">
+	<Style Selector="^:not(TextBox:empty) /template/ TextBlock#floatingWatermark">
 		<Setter Property="Margin" Value="1,-16,1,1" />
 		<Setter Property="RenderTransform" Value="scale(0.75)" />
 		<Setter Property="MaxWidth" Value="{TemplateBinding Width}" />
